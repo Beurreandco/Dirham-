@@ -33,11 +33,31 @@
     { id: 'clients', name: 'Client payments', icon: '🥊', kind: 'income' },
     { id: 'refunds', name: 'Refunds', icon: '↩️', kind: 'income' },
     { id: 'other_in', name: 'Other income', icon: '💰', kind: 'income' },
-    { id: 'transfer', name: 'Transfer / card payment', icon: '🔁', kind: 'transfer' }
+    { id: 'transfer', name: 'Transfer / card payment', icon: '🔁', kind: 'transfer' },
+    // ---- Kid (co-parenting) categories: always counted in the Kid ledger
+    { id: 'k_school', name: 'School fees', icon: '🎓', kind: 'expense', group: 'kid' },
+    { id: 'k_bus', name: 'School bus', icon: '🚌', kind: 'expense', group: 'kid' },
+    { id: 'k_supplies', name: 'Uniforms & books', icon: '📒', kind: 'expense', group: 'kid' },
+    { id: 'k_health', name: 'Kid health', icon: '🩺', kind: 'expense', group: 'kid' },
+    { id: 'k_activities', name: 'Sports & classes', icon: '⚽', kind: 'expense', group: 'kid' },
+    { id: 'k_care', name: 'Childcare & nanny', icon: '🍼', kind: 'expense', group: 'kid' },
+    { id: 'k_food', name: 'Kid food & snacks', icon: '🍎', kind: 'expense', group: 'kid' },
+    { id: 'k_clothes', name: 'Kid clothing', icon: '👕', kind: 'expense', group: 'kid' },
+    { id: 'k_toys', name: 'Toys & gifts', icon: '🧸', kind: 'expense', group: 'kid' },
+    { id: 'k_transport', name: 'Kid transport', icon: '🚗', kind: 'expense', group: 'kid' },
+    { id: 'k_outings', name: 'Birthdays & outings', icon: '🎂', kind: 'expense', group: 'kid' },
+    { id: 'k_other', name: 'Other (kid)', icon: '🧒', kind: 'expense', group: 'kid' },
+    { id: 'settle', name: 'Co-parent settlement', icon: '🤝', kind: 'settlement' }
   ];
 
   // Ordered: more specific keywords first.
   const KEYWORDS = [
+    ['k_bus', ['school bus', 'school transport', 'bus fee', 'student transport', 'stx ']],
+    ['k_toys', ['toys r us', 'toysrus', 'toys', 'hamleys', 'lego', 'early learning', 'elc ']],
+    ['k_clothes', ['mothercare', 'babyshop', 'baby shop', 'carters', "carter's", 'kids fashion']],
+    ['k_outings', ['kidzania', 'cartoon network', 'legoland', 'magic planet', 'fun city', 'sparkys', 'bounce', 'ice land', 'aquaventure']],
+    ['k_activities', ['swim academy', 'football academy', 'ballet', 'gymnastics', 'karate', 'taekwondo', 'kids academy', 'kids club']],
+    ['k_school', ['school', 'nursery', 'kindergarten', 'gems ', 'taaleem', 'kidz', 'early years', 'montessori', 'british orchard']],
     ['delivery', ['talabat', 'deliveroo', 'keeta', 'noon food', 'noonfood', 'careem food', 'zomato', 'smiles', 'instashop food']],
     ['subs', ['netflix', 'spotify', 'apple.com', 'itunes', 'icloud', 'youtube', 'google one', 'google *', 'osn', 'shahid', 'disney', 'anghami', 'chatgpt', 'openai', 'anthropic', 'claude.ai', 'adobe', 'microsoft', 'amazon prime', 'primevideo', 'starzplay', 'tradingview', 'mql5', 'patreon', 'canva']],
     ['groceries', ['carrefour', 'lulu', 'spinneys', 'waitrose', 'choithram', 'union coop', 'unioncoop', 'viva ', 'kibsons', 'instashop', 'west zone', 'al maya', 'almaya', 'nesto', 'grandiose', 'geant', 'supermarket', 'hypermarket', 'baqala', 'grocery', 'grocer', 'organic foods', 'noon minutes', 'amazon fresh']],
@@ -49,7 +69,7 @@
     ['fun', ['vox', 'reel cinema', 'novo cinema', 'cinema', 'playstation', 'steam', 'xbox', 'nintendo', 'dubai parks', 'ticketmaster', 'platinumlist', 'bowling', 'img worlds', 'global village', 'wild wadi']],
     ['bills', ['dewa', 'sewa', 'addc', 'aadc', 'fewa', 'empower', 'etisalat', 'e& ', ' du ', 'du telecom', 'virgin mobile', 'municipality', 'ejari', 'internet', 'telecom', 'insurance', 'chiller', 'lootah', 'emirates gas']],
     ['rent', ['rent', 'real estate', 'properties', 'property', 'ikea', 'home centre', 'home box', 'ace hardware', 'dragon mart']],
-    ['education', ['udemy', 'coursera', 'school', 'university', 'academy', 'course', 'books', 'kinokuniya', 'magrudy']],
+    ['education', ['udemy', 'coursera', 'university', 'academy', 'course', 'books', 'kinokuniya', 'magrudy']],
     ['shopping', ['amazon', 'noon', 'namshi', 'centrepoint', 'max fashion', 'h&m', 'zara', 'sharaf dg', 'virgin megastore', 'jumbo', 'apple store', 'decathlon', 'shein', 'temu', 'aliexpress', 'mall', 'nike', 'adidas', 'sephora', 'lulu fashion', 'uniqlo', 'emax', 'eros']],
     ['dining', ['starbucks', 'costa', 'tim hortons', 'mcdonald', 'kfc', 'burger', 'cafe', 'café', 'coffee', 'restaurant', 'pizza', 'shake shack', 'five guys', 'subway', 'pret', 'eatery', 'grill', 'kitchen', 'bakery', 'arabica', 'shawarma', 'manoushe', 'bistro', 'sushi', 'dunkin', 'krispy', 'popeyes', 'hardees', "hardee's", 'texas chicken', 'nandos', "nando's", 'paul ', 'bateel', 'jones the grocer', 'diner', 'lounge']],
     ['cash', ['atm', 'cash withdrawal']],
@@ -417,6 +437,8 @@
     return txns;
   }
 
-  const API = { parseSms, splitMessages, categorize, cleanMerchant, merchantKey, smsHash, hash, toAED, parseLooseDate, ymd, hm, parseStatementLines, DEFAULT_FX, DEFAULT_CATEGORIES, KEYWORDS };
+  function isKidCategory(id) { return /^k_/.test(String(id || '')); }
+
+  const API = { isKidCategory, parseSms, splitMessages, categorize, cleanMerchant, merchantKey, smsHash, hash, toAED, parseLooseDate, ymd, hm, parseStatementLines, DEFAULT_FX, DEFAULT_CATEGORIES, KEYWORDS };
   if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.DirhamParser = API;
 })(typeof self !== 'undefined' ? self : this);

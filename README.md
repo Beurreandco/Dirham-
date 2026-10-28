@@ -1,4 +1,4 @@
-# Dirham: a private, offline expense tracker for iPhone
+# Dirham 2.0: a private, offline expense tracker for iPhone
 
 Dirham tracks your spending from **Emirates NBD / Liv bank SMS** and, if you want, from **PDF statements**. Everything is stored on your iPhone only. There is no server, no account and no bank login.
 
@@ -30,6 +30,19 @@ In the app, go to **Import** and tap **Set up automatic SMS capture**. The guide
 - Add an **Append to Text File** action that writes to `dirham-sms.txt`, with **Make New Line** turned on.
 
 To pull in new messages: open **Import**, tap **Choose dirham-sms.txt**, then go to **iCloud Drive**, then **Shortcuts**, then `dirham-sms.txt`. Messages you've already imported are skipped automatically.
+
+## What's new in 2.0
+
+- A redesigned interface with a light theme (white and grey) and a dark theme (true black). Pick Automatic, Light or Dark in **Settings**.
+- Two ledgers, **Personal** and **Kid**. The Home screen switches between Overview, Personal and the child's name.
+- **Kid hub tab:** a running balance of who owes whom with the co-parent, a **Settle up** button, a monthly split bar, a breakdown by category, and a **Report** you can share as a WhatsApp message or a CSV file.
+- Each kid expense records **who paid** (you or the co-parent) and **your share** (50/50, all yours, all theirs, or a custom split).
+- Kid categories: school fees, school bus, uniforms and books, health, sports and classes, childcare, food, clothing, toys, transport, birthdays and outings. Schools, toy stores and kids' venues are recognised automatically.
+- In **Activity**, tap **Select** to move several transactions to the kid ledger at once.
+
+## Updating from 1.0
+
+Upload the new `index.html`, `app.js`, `app.css`, `parser.js` and `sw.js` to the same GitHub repository, replacing the old ones. Existing transactions are kept. The app updates itself the next time it's opened online.
 
 ## Features
 

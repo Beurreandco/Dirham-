@@ -1,5 +1,5 @@
 /* Dirham service worker — caches the whole app so it runs fully offline. */
-const VERSION = 'dirham-v1.0.0';
+const VERSION = 'dirham-v2.0.0';
 const FILES = ['./', 'index.html', 'app.css', 'app.js', 'parser.js', 'manifest.webmanifest',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png', 'vendor/pdf.min.js', 'vendor/pdf.worker.min.js'];
 self.addEventListener('install', (e) => {
