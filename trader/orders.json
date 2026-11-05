@@ -1,0 +1,50 @@
+{
+  "created_by": "trader-budget",
+  "created_at": "2026-11-05T07:58:20",
+  "status": "proposed",
+  "paper": true,
+  "note": "Proposals only. Nothing is placed until trader-risk passes each order and you say yes to it in the chat.",
+  "source": "Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised",
+  "orders": [
+    {
+      "symbol": "AAPL",
+      "side": "buy",
+      "notional": "18",
+      "type": "market",
+      "time_in_force": "day",
+      "why": "30.67% of the stock sleeve, copying Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised; capped at 25% of the $75 budget"
+    },
+    {
+      "symbol": "AXP",
+      "side": "buy",
+      "notional": "17",
+      "type": "market",
+      "time_in_force": "day",
+      "why": "23.85% of the stock sleeve, copying Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised"
+    },
+    {
+      "symbol": "GOOGL",
+      "side": "buy",
+      "notional": "12",
+      "type": "market",
+      "time_in_force": "day",
+      "why": "17.56% of the stock sleeve, copying Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised"
+    },
+    {
+      "symbol": "KO",
+      "side": "buy",
+      "notional": "11",
+      "type": "market",
+      "time_in_force": "day",
+      "why": "15.11% of the stock sleeve, copying Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised"
+    },
+    {
+      "symbol": "BAC",
+      "side": "buy",
+      "notional": "9",
+      "type": "market",
+      "time_in_force": "day",
+      "why": "12.80% of the stock sleeve, copying Berkshire Hathaway Inc 13F-HR, Q2 2026 (period 2026-06-30, filed 2026-08-14, accession 0001193125-26-352200), top 5 renormalised"
+    }
+  ]
+}
